@@ -1,0 +1,56 @@
+body {
+  padding: 0px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+a { color: #00B7FF; }
+
+* {
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	user-select: none;	
+}
+
+p.button.in-game{
+	display:none;
+}
+
+#alert-banko.client{display:block}
+
+#viewport{width: 320px;}
+#viewport.dark{background-color: black}
+
+p.button { 
+	padding: 10px; 
+	border: 1px solid black; 
+	width:100px;
+	cursor:pointer;					
+}
+p.button:hover { background-color: #ccc; }
+p.button:active { background-color: #aaa; }	
+
+div#all-numbers .number { 
+	padding:5px; 
+	margin:5px; 
+	background-color:#ccc; 
+	color: #666; 
+	float:left; 
+	display:block; 
+	width: 20px;
+	height: 20px;
+	text-align:center;
+}	
+
+div#all-numbers .number:first-child { 
+	color: #000; 
+	background-color:#fff; 
+	border: 1px solid black;
+}			
+
+#banko-msg{
+	font-size: 4em;
+	display:none;
+}
+
+.clear{ clear: both; }
