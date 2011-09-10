@@ -57,8 +57,6 @@ function alertBanko(){
 function restartGame(){
 	delete round;
     socket.emit('post-restart', { restart: true });	
-    $("#all-numbers").empty();
-    $('#start-game').trigger('click');
 }
 
 /*
@@ -119,6 +117,13 @@ socket.on('get-number', function (data) {
 // get banko alert
 socket.on('get-banko', function (data) {
 	$('#banko-msg').text("Der er banko hos: "+ data.clientName).fadeIn("fast").delay(10000).fadeOut("slow");
+});
+
+// get restart alert
+socket.on('get-restart', function (data) {
+	$("#info").text("Game was restarted").show().delay(5000).fadeOut();
+    $("#all-numbers").empty();
+    $('#start-game').trigger('click');	
 });
 
 /**

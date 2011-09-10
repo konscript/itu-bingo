@@ -58,6 +58,9 @@ io.sockets.on('connection', function (socket) {
 	socket.on('post-restart', function (data) {
 		round = null;
 		shuffledList = null;
+		
+		// send restart msg to all clients	
+		io.sockets.emit('get-restart', { restart: true });
 	});		
 });		
 

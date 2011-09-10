@@ -40,6 +40,7 @@ div#all-numbers .number {
 	width: 20px;
 	height: 20px;
 	text-align:center;
+	border: 1px solid white;
 }	
 
 div#all-numbers .number:first-child { 
