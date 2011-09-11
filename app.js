@@ -69,7 +69,7 @@ io.sockets.on('connection', function (socket) {
  ********/
 app.get('/master', function(req, res){
   res.render('master', {
-    title: 'Express',
+    title: 'MASTER',
     round: round,
     pastNumbers: getPastNumbers()
   });
@@ -80,11 +80,23 @@ app.get('/master', function(req, res){
  ****/ 
 app.get('/spectator', function(req, res){
 	res.render('spectator', {
-		title: 'Show',
+		title: 'SPECTATOR',
 	    round: round,		
 		pastNumbers: getPastNumbers()
 	});
 });
+
+/* 
+ * responsible
+ ****/ 
+app.get('/responsible', function(req, res){
+	res.render('responsible', {
+		title: 'RESPONSIBLE',
+	    round: round,		
+		pastNumbers: getPastNumbers()
+	});
+});
+
 
 /**
  * numbers from the current game

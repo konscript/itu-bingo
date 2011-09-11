@@ -10,7 +10,9 @@ var shuffledList,
  *************************/
 $(document).ready(function() {
 	// ask for client name
-	clientName=prompt("Please enter your (bus) name","Bus ");
+	if (window.location.pathname != '/spectator') {
+		clientName=prompt("Please enter your (bus) name","Bus ");
+	}
 
 	// if game is already started fetch values
 	gameAlreadyStarted();
@@ -51,7 +53,10 @@ function updateControls(){
 
 // send banko alert to server
 function alertBanko(){
-    socket.emit('post-banko', { clientName: clientName });		
+		var answer = confirm("dude, you sure you have BANKO?");
+		if (answer) {
+    	socket.emit('post-banko', { clientName: clientName });
+		}
 }
 
 function restartGame(){
@@ -89,7 +94,7 @@ function getNumber(){
 
 	// has game ended?
 	if(round>sortedList.length){
-		alert("Spillet er slut!");
+		alert("Game is over bitches!");
 		return false;
 	}	
 	
@@ -116,12 +121,20 @@ socket.on('get-number', function (data) {
 
 // get banko alert
 socket.on('get-banko', function (data) {
-	$('#banko-msg').text("Der er banko hos: "+ data.clientName).fadeIn("fast").delay(10000).fadeOut("slow");
+
+	$("<div class='ui-loader ui-overlay-shadow ui-body-e ui-corner-all'><h1>There is BANKO at " + data.clientName + "</h1></div>").css({ "display": "block", "opacity": 0.96, "top": $(window).scrollTop() + 100 })
+	  .appendTo( $.mobile.pageContainer )
+	  .delay( 10000 )
+	  .fadeOut( 400, function(){
+	    $(this).remove();
+	  });
+
+	//$('#banko-msg').text("Der er banko hos: "+ data.clientName).fadeIn("fast").delay(10000).fadeOut("slow");
 });
 
 // get restart alert
 socket.on('get-restart', function (data) {
-	$("#info").text("Game was restarted").show().delay(5000).fadeOut();
+	$("#info").text("Game was restarted!").show().delay(5000).fadeOut();
     $("#all-numbers").empty();
     $('#start-game').trigger('click');	
 });
