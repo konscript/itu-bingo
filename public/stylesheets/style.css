@@ -12,23 +12,16 @@ a { color: #00B7FF; }
 	user-select: none;	
 }
 
-p.button.in-game{
-	display:none;
+a.in-game{
+	/*display:none;*/
 }
 
 #alert-banko.client{display:block}
 
+/*
 #viewport{width: 320px;}
 #viewport.dark{background-color: black}
-
-p.button { 
-	padding: 10px; 
-	border: 1px solid black; 
-	width:100px;
-	cursor:pointer;					
-}
-p.button:hover { background-color: #ccc; }
-p.button:active { background-color: #aaa; }	
+*/
 
 div#all-numbers .number { 
 	padding:5px; 

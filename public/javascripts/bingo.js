@@ -45,8 +45,8 @@ $(document).ready(function() {
  * update controls
  ******/
 function updateControls(){
-	$('p.button.pre-game').hide('slow');
-	$("p.button.in-game").fadeIn();
+	$('a.pre-game').hide('slow');
+	$("a.in-game").fadeIn();
 }
 
 // send banko alert to server
